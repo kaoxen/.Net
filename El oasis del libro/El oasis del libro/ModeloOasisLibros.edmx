@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OasisLibrosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CANTIDADVENDIDOS">
+          <Key>
+            <PropertyRef Name="IdCantidadVendido" />
+          </Key>
+          <Property Name="IdCantidadVendido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFactura" Type="int" Nullable="false" />
+          <Property Name="IdLibro" Type="int" Nullable="false" />
+          <Property Name="CantidadVendido" Type="int" Nullable="false" />
+          <Property Name="TotalLibro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoCliente" Type="int" Nullable="false" />
+          <Property Name="DireccionCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INVENTARIOS">
+          <Key>
+            <PropertyRef Name="IdInventario" />
+          </Key>
+          <Property Name="IdInventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLibro" Type="int" Nullable="false" />
+          <Property Name="CantidadInicial" Type="int" Nullable="false" />
+          <Property Name="CantidadVendido" Type="int" />
+          <Property Name="CantidadActual" Type="int" />
+        </EntityType>
+        <EntityType Name="LIBROS">
+          <Key>
+            <PropertyRef Name="IdLibro" />
+          </Key>
+          <Property Name="IdLibro" Type="int" Nullable="false" />
+          <Property Name="NombreLibro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CantidadInicial" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VENTAS">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+          </Key>
+          <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaVenta" Type="datetime" Nullable="false" />
+          <Property Name="ValorTotal" Type="int" Nullable="false" />
+          <Property Name="IdFactura" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CANTIDADVENDIDOS_LIBROS">
+          <End Role="LIBROS" Type="Self.LIBROS" Multiplicity="1" />
+          <End Role="CANTIDADVENDIDOS" Type="Self.CANTIDADVENDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBROS">
+              <PropertyRef Name="IdLibro" />
+            </Principal>
+            <Dependent Role="CANTIDADVENDIDOS">
+              <PropertyRef Name="IdLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVENTARIOS_LIBROS">
+          <End Role="LIBROS" Type="Self.LIBROS" Multiplicity="1" />
+          <End Role="INVENTARIOS" Type="Self.INVENTARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBROS">
+              <PropertyRef Name="IdLibro" />
+            </Principal>
+            <Dependent Role="INVENTARIOS">
+              <PropertyRef Name="IdLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTAS_CLIENTES">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="VENTAS">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OasisLibrosModelStoreContainer">
+          <EntitySet Name="CANTIDADVENDIDOS" EntityType="Self.CANTIDADVENDIDOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INVENTARIOS" EntityType="Self.INVENTARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LIBROS" EntityType="Self.LIBROS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENTAS" EntityType="Self.VENTAS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CANTIDADVENDIDOS_LIBROS" Association="Self.FK_CANTIDADVENDIDOS_LIBROS">
+            <End Role="LIBROS" EntitySet="LIBROS" />
+            <End Role="CANTIDADVENDIDOS" EntitySet="CANTIDADVENDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVENTARIOS_LIBROS" Association="Self.FK_INVENTARIOS_LIBROS">
+            <End Role="LIBROS" EntitySet="LIBROS" />
+            <End Role="INVENTARIOS" EntitySet="INVENTARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTAS_CLIENTES" Association="Self.FK_VENTAS_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="VENTAS" EntitySet="VENTAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OasisLibrosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OasisLibrosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CANTIDADVENDIDOS" EntityType="OasisLibrosModel.CANTIDADVENDIDOS" />
+          <EntitySet Name="CLIENTES" EntityType="OasisLibrosModel.CLIENTES" />
+          <EntitySet Name="INVENTARIOS" EntityType="OasisLibrosModel.INVENTARIOS" />
+          <EntitySet Name="LIBROS" EntityType="OasisLibrosModel.LIBROS" />
+          <EntitySet Name="sysdiagrams" EntityType="OasisLibrosModel.sysdiagrams" />
+          <EntitySet Name="VENTAS" EntityType="OasisLibrosModel.VENTAS" />
+          <AssociationSet Name="FK_CANTIDADVENDIDOS_LIBROS" Association="OasisLibrosModel.FK_CANTIDADVENDIDOS_LIBROS">
+            <End Role="LIBROS" EntitySet="LIBROS" />
+            <End Role="CANTIDADVENDIDOS" EntitySet="CANTIDADVENDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTAS_CLIENTES" Association="OasisLibrosModel.FK_VENTAS_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="VENTAS" EntitySet="VENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVENTARIOS_LIBROS" Association="OasisLibrosModel.FK_INVENTARIOS_LIBROS">
+            <End Role="LIBROS" EntitySet="LIBROS" />
+            <End Role="INVENTARIOS" EntitySet="INVENTARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CANTIDADVENDIDOS">
+          <Key>
+            <PropertyRef Name="IdCantidadVendido" />
+          </Key>
+          <Property Name="IdCantidadVendido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactura" Type="Int32" Nullable="false" />
+          <Property Name="IdLibro" Type="Int32" Nullable="false" />
+          <Property Name="CantidadVendido" Type="Int32" Nullable="false" />
+          <Property Name="TotalLibro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LIBROS" Relationship="OasisLibrosModel.FK_CANTIDADVENDIDOS_LIBROS" FromRole="CANTIDADVENDIDOS" ToRole="LIBROS" />
+        </EntityType>
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoCliente" Type="Int32" Nullable="false" />
+          <Property Name="DireccionCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VENTAS" Relationship="OasisLibrosModel.FK_VENTAS_CLIENTES" FromRole="CLIENTES" ToRole="VENTAS" />
+        </EntityType>
+        <EntityType Name="INVENTARIOS">
+          <Key>
+            <PropertyRef Name="IdInventario" />
+          </Key>
+          <Property Name="IdInventario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLibro" Type="Int32" Nullable="false" />
+          <Property Name="CantidadInicial" Type="Int32" Nullable="false" />
+          <Property Name="CantidadVendido" Type="Int32" />
+          <Property Name="CantidadActual" Type="Int32" />
+          <NavigationProperty Name="LIBROS" Relationship="OasisLibrosModel.FK_INVENTARIOS_LIBROS" FromRole="INVENTARIOS" ToRole="LIBROS" />
+        </EntityType>
+        <EntityType Name="LIBROS">
+          <Key>
+            <PropertyRef Name="IdLibro" />
+          </Key>
+          <Property Name="IdLibro" Type="Int32" Nullable="false" />
+          <Property Name="NombreLibro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CantidadInicial" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CANTIDADVENDIDOS" Relationship="OasisLibrosModel.FK_CANTIDADVENDIDOS_LIBROS" FromRole="LIBROS" ToRole="CANTIDADVENDIDOS" />
+          <NavigationProperty Name="INVENTARIOS" Relationship="OasisLibrosModel.FK_INVENTARIOS_LIBROS" FromRole="LIBROS" ToRole="INVENTARIOS" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VENTAS">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+          </Key>
+          <Property Name="IdVenta" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaVenta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValorTotal" Type="Int32" Nullable="false" />
+          <Property Name="IdFactura" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="OasisLibrosModel.FK_VENTAS_CLIENTES" FromRole="VENTAS" ToRole="CLIENTES" />
+        </EntityType>
+        <Association Name="FK_CANTIDADVENDIDOS_LIBROS">
+          <End Type="OasisLibrosModel.LIBROS" Role="LIBROS" Multiplicity="1" />
+          <End Type="OasisLibrosModel.CANTIDADVENDIDOS" Role="CANTIDADVENDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBROS">
+              <PropertyRef Name="IdLibro" />
+            </Principal>
+            <Dependent Role="CANTIDADVENDIDOS">
+              <PropertyRef Name="IdLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTAS_CLIENTES">
+          <End Type="OasisLibrosModel.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="OasisLibrosModel.VENTAS" Role="VENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="VENTAS">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVENTARIOS_LIBROS">
+          <End Type="OasisLibrosModel.LIBROS" Role="LIBROS" Multiplicity="1" />
+          <End Type="OasisLibrosModel.INVENTARIOS" Role="INVENTARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBROS">
+              <PropertyRef Name="IdLibro" />
+            </Principal>
+            <Dependent Role="INVENTARIOS">
+              <PropertyRef Name="IdLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OasisLibrosModelStoreContainer" CdmEntityContainer="OasisLibrosEntities">
+          <EntitySetMapping Name="CANTIDADVENDIDOS">
+            <EntityTypeMapping TypeName="OasisLibrosModel.CANTIDADVENDIDOS">
+              <MappingFragment StoreEntitySet="CANTIDADVENDIDOS">
+                <ScalarProperty Name="TotalLibro" ColumnName="TotalLibro" />
+                <ScalarProperty Name="CantidadVendido" ColumnName="CantidadVendido" />
+                <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+                <ScalarProperty Name="IdCantidadVendido" ColumnName="IdCantidadVendido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTES">
+            <EntityTypeMapping TypeName="OasisLibrosModel.CLIENTES">
+              <MappingFragment StoreEntitySet="CLIENTES">
+                <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+                <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INVENTARIOS">
+            <EntityTypeMapping TypeName="OasisLibrosModel.INVENTARIOS">
+              <MappingFragment StoreEntitySet="INVENTARIOS">
+                <ScalarProperty Name="CantidadActual" ColumnName="CantidadActual" />
+                <ScalarProperty Name="CantidadVendido" ColumnName="CantidadVendido" />
+                <ScalarProperty Name="CantidadInicial" ColumnName="CantidadInicial" />
+                <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+                <ScalarProperty Name="IdInventario" ColumnName="IdInventario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LIBROS">
+            <EntityTypeMapping TypeName="OasisLibrosModel.LIBROS">
+              <MappingFragment StoreEntitySet="LIBROS">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="CantidadInicial" ColumnName="CantidadInicial" />
+                <ScalarProperty Name="NombreLibro" ColumnName="NombreLibro" />
+                <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OasisLibrosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTAS">
+            <EntityTypeMapping TypeName="OasisLibrosModel.VENTAS">
+              <MappingFragment StoreEntitySet="VENTAS">
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+                <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

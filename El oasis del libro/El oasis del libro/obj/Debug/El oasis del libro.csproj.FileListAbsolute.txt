@@ -1,0 +1,37 @@
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\obj\Debug\El oasis del libro.csprojResolveAssemblyReference.cache
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\ApplicationInsights.config
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\csc.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\System.Collections.Immutable.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\vbc.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\VBCSCompiler.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\roslyn\VBCSCompiler.exe.config
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\El oasis del libro.dll.config
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\El oasis del libro.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\El oasis del libro.pdb
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.Web.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.WindowsServer.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.ApplicationInsights.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.Web.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.AI.WindowsServer.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.ApplicationInsights.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\obj\Debug\El oasis del libro.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\obj\Debug\El oasis del libro.pdb
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\EntityFramework.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\EntityFramework.SqlServer.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\EntityFramework.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\El oasis del libro\El oasis del libro\bin\EntityFramework.SqlServer.xml
